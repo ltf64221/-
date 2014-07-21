@@ -45,7 +45,18 @@
     self.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"邮箱" style:UIBarButtonItemStylePlain target:self action:@selector(eMail)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setAttribute)];
+    
 
+}
+
+- (void)eMail{
+    
+}
+
+- (void)setAttribute{
+    
 }
 - (void)viewDidLoad
 {
