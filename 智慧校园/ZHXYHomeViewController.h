@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#define TABLEVIEWCELL_NUMBER 5
 @interface ZHXYHomeViewController : UIViewController
 
 @end

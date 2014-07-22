@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844197C4197E2EFC00D08337 /* HDScrollview.m in Sources */ = {isa = PBXBuildFile; fileRef = 844197C1197E2EFC00D08337 /* HDScrollview.m */; };
+		844197C5197E2EFC00D08337 /* HdPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 844197C3197E2EFC00D08337 /* HdPageControl.m */; };
+		844197D1197E47B300D08337 /* ZHXYShowDetailContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844197CF197E47B300D08337 /* ZHXYShowDetailContentViewController.m */; };
+		844197D2197E47B300D08337 /* ZHXYShowDetailContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844197D0197E47B300D08337 /* ZHXYShowDetailContentViewController.xib */; };
+		844197D7197E5E8500D08337 /* Expression_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844197D3197E5E8500D08337 /* Expression_1@2x.png */; };
+		844197D8197E5E8500D08337 /* Expression_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844197D4197E5E8500D08337 /* Expression_2@2x.png */; };
+		844197D9197E5E8500D08337 /* Expression_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844197D5197E5E8500D08337 /* Expression_3@2x.png */; };
+		844197DA197E5E8500D08337 /* Expression_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844197D6197E5E8500D08337 /* Expression_4@2x.png */; };
 		84A03293197C9B790061CF14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A03292197C9B790061CF14 /* Foundation.framework */; };
 		84A03295197C9B790061CF14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A03294197C9B790061CF14 /* CoreGraphics.framework */; };
 		84A03297197C9B790061CF14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A03296197C9B790061CF14 /* UIKit.framework */; };
@@ -70,6 +78,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		844197C0197E2EFC00D08337 /* HDScrollview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDScrollview.h; sourceTree = "<group>"; };
+		844197C1197E2EFC00D08337 /* HDScrollview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDScrollview.m; sourceTree = "<group>"; };
+		844197C2197E2EFC00D08337 /* HdPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HdPageControl.h; sourceTree = "<group>"; };
+		844197C3197E2EFC00D08337 /* HdPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HdPageControl.m; sourceTree = "<group>"; };
+		844197CE197E47B300D08337 /* ZHXYShowDetailContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHXYShowDetailContentViewController.h; sourceTree = "<group>"; };
+		844197CF197E47B300D08337 /* ZHXYShowDetailContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHXYShowDetailContentViewController.m; sourceTree = "<group>"; };
+		844197D0197E47B300D08337 /* ZHXYShowDetailContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZHXYShowDetailContentViewController.xib; sourceTree = "<group>"; };
+		844197D3197E5E8500D08337 /* Expression_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_1@2x.png"; sourceTree = "<group>"; };
+		844197D4197E5E8500D08337 /* Expression_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_2@2x.png"; sourceTree = "<group>"; };
+		844197D5197E5E8500D08337 /* Expression_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_3@2x.png"; sourceTree = "<group>"; };
+		844197D6197E5E8500D08337 /* Expression_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_4@2x.png"; sourceTree = "<group>"; };
 		84A0328F197C9B790061CF14 /* 智慧校园.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "智慧校园.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A03292197C9B790061CF14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84A03294197C9B790061CF14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +197,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		844197BF197E2EC600D08337 /* HDScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				844197C0197E2EFC00D08337 /* HDScrollview.h */,
+				844197C1197E2EFC00D08337 /* HDScrollview.m */,
+				844197C2197E2EFC00D08337 /* HdPageControl.h */,
+				844197C3197E2EFC00D08337 /* HdPageControl.m */,
+			);
+			name = HDScrollView;
+			sourceTree = "<group>";
+		};
 		84A03286197C9B790061CF14 = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +420,14 @@
 				84A03333197CF6810061CF14 /* ZHXYHomeViewController.h */,
 				84A03334197CF6810061CF14 /* ZHXYHomeViewController.m */,
 				84A03335197CF6810061CF14 /* ZHXYHomeViewController.xib */,
+				844197CE197E47B300D08337 /* ZHXYShowDetailContentViewController.h */,
+				844197CF197E47B300D08337 /* ZHXYShowDetailContentViewController.m */,
+				844197D3197E5E8500D08337 /* Expression_1@2x.png */,
+				844197D4197E5E8500D08337 /* Expression_2@2x.png */,
+				844197D5197E5E8500D08337 /* Expression_3@2x.png */,
+				844197D6197E5E8500D08337 /* Expression_4@2x.png */,
+				844197D0197E47B300D08337 /* ZHXYShowDetailContentViewController.xib */,
+				844197BF197E2EC600D08337 /* HDScrollView */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -471,10 +509,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844197DA197E5E8500D08337 /* Expression_4@2x.png in Resources */,
+				844197D7197E5E8500D08337 /* Expression_1@2x.png in Resources */,
 				84A032AB197C9B790061CF14 /* Images.xcassets in Resources */,
+				844197D9197E5E8500D08337 /* Expression_3@2x.png in Resources */,
 				84A032CB197C9C0F0061CF14 /* ZHXYUserLogViewController.xib in Resources */,
 				84A032CF197CA0560061CF14 /* checkbox1_unchecked@2x.png in Resources */,
 				84A03337197CF6810061CF14 /* ZHXYHomeViewController.xib in Resources */,
+				844197D8197E5E8500D08337 /* Expression_2@2x.png in Resources */,
 				84A0329D197C9B790061CF14 /* InfoPlist.strings in Resources */,
 				84A0333C197CFAEF0061CF14 /* ZHXYEducationCenterViewController.xib in Resources */,
 				84A032A6197C9B790061CF14 /* Main.storyboard in Resources */,
@@ -484,6 +526,7 @@
 				84A03324197CEC000061CF14 /* ZHXYeSquareViewController.xib in Resources */,
 				84A03331197CECC70061CF14 /* ZHXYCloudLibraryViewController.xib in Resources */,
 				84A0330F197CA9F60061CF14 /* ZHXYSelectClassViewController.xib in Resources */,
+				844197D2197E47B300D08337 /* ZHXYShowDetailContentViewController.xib in Resources */,
 				84A032D1197CA05B0061CF14 /* checkbox1_checked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +548,7 @@
 			files = (
 				84A03308197CA97F0061CF14 /* UIProgressView+AFNetworking.m in Sources */,
 				84A0333B197CFAEF0061CF14 /* ZHXYEducationCenterViewController.m in Sources */,
+				844197C5197E2EFC00D08337 /* HdPageControl.m in Sources */,
 				84A03317197CCC5F0061CF14 /* ZHXYHomePageTabBarController.m in Sources */,
 				84A03306197CA97F0061CF14 /* UIButton+AFNetworking.m in Sources */,
 				84A03309197CA97F0061CF14 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -517,10 +561,12 @@
 				84A032ED197CA9670061CF14 /* AFURLConnectionOperation.m in Sources */,
 				84A03307197CA97F0061CF14 /* UIImageView+AFNetworking.m in Sources */,
 				84A0330E197CA9F60061CF14 /* ZHXYSelectClassViewController.m in Sources */,
+				844197D1197E47B300D08337 /* ZHXYShowDetailContentViewController.m in Sources */,
 				84A032E8197CA9670061CF14 /* AFHTTPRequestOperation.m in Sources */,
 				84A03304197CA97F0061CF14 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				84A032A9197C9B790061CF14 /* ZHXYViewController.m in Sources */,
 				84A032EE197CA9670061CF14 /* AFURLRequestSerialization.m in Sources */,
+				844197C4197E2EFC00D08337 /* HDScrollview.m in Sources */,
 				84A032EA197CA9670061CF14 /* AFHTTPSessionManager.m in Sources */,
 				84A032EB197CA9670061CF14 /* AFNetworkReachabilityManager.m in Sources */,
 				84A032EF197CA9670061CF14 /* AFURLResponseSerialization.m in Sources */,
@@ -735,6 +781,7 @@
 				84A032C3197C9B790061CF14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84A032C4197C9B790061CF14 /* Build configuration list for PBXNativeTarget "智慧校园Tests" */ = {
 			isa = XCConfigurationList;
@@ -743,6 +790,7 @@
 				84A032C6197C9B790061CF14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
