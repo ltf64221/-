@@ -10,8 +10,9 @@
 #import "AFNetworkReachabilityManager.h"
 #import "AFNetworking.h"
 #import "ZHXYSelectClassViewController.h"
+#import "WebSeviceSopaRequest.h"
 
-static const NSString *baseUrl = @"http://218.23.98.46/timeep/services/UserWS";
+static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/UserWS";
 
 @interface ZHXYUserLogViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *userLogLabel;
@@ -22,6 +23,7 @@ static const NSString *baseUrl = @"http://218.23.98.46/timeep/services/UserWS";
 @property (nonatomic) BOOL checkBoxBtnState;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionErrorInformationLable;
 @property (nonatomic, strong)NSUserDefaults *backUpUser;
+@property (nonatomic) BOOL netWorkStatue;
 @end
 
 @implementation ZHXYUserLogViewController
@@ -32,6 +34,7 @@ static const NSString *baseUrl = @"http://218.23.98.46/timeep/services/UserWS";
 @synthesize checkBoxBtnState = _checkBoxBtnState;
 @synthesize descriptionErrorInformationLable = _descriptionErrorInformationLable;
 @synthesize backUpUser = _backUpUser;
+@synthesize netWorkStatue = _netWorkStatue;
 
 - (NSUserDefaults *)backUpUser{
     if (!_backUpUser) {
@@ -74,42 +77,28 @@ static const NSString *baseUrl = @"http://218.23.98.46/timeep/services/UserWS";
 - (IBAction)userLogBtn:(UIButton *)sender {
     [self.userName resignFirstResponder];
     [self.password resignFirstResponder];
-    [self.navigationController pushViewController:[[ZHXYSelectClassViewController alloc]init] animated:NO];
-#if 1
-    if (self.userName.text != nil && self.password.text != nil){
-        
+
+    if (![self.userName.text isEqual: @""] && ![self.password.text isEqual: @""]) {
         self.descriptionErrorInformationLable.hidden = YES;
-        
-        NSString *urlString = [NSString stringWithFormat:@"%@/?userName=t001&password=111111",baseUrl];
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSURLRequest *requestLog = [NSURLRequest requestWithURL:url];
-        AFHTTPRequestOperation *logOperation = [[AFHTTPRequestOperation alloc]initWithRequest:requestLog];
-        logOperation.responseSerializer = [AFJSONResponseSerializer serializer];
-        [logOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //判断数据库中是否有用户名
-            NSLog(@"Success");
-            //backPassword
+       WebSeviceSopaRequest *sopaRequest = [[WebSeviceSopaRequest alloc]init];
+        self.netWorkStatue = [sopaRequest sopaRequestUrl:baseUrlString UserName:@"liutianfu" Password:@"111111" PID:1];
+        if (self.netWorkStatue) {
             if (self.checkBoxBtnState) {
                 [self.backUpUser setObject:self.password.text forKey:self.userName.text];
                 [self.backUpUser synchronize];
             }
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"failure");
+            [self.navigationController pushViewController:[[ZHXYSelectClassViewController alloc]init] animated:NO];
+        }else{
             if (![self isNetWorkReachable]) {
                 self.descriptionErrorInformationLable.hidden = NO;
                 [self.view addSubview:self.descriptionErrorInformationLable];
                 
                 [self performSelector:@selector(errorInfoDisappear) withObject:nil afterDelay:3];
             }
-            
-        }];
+        }
         
-        [logOperation start];
-        
-        
-    }else {
-        
+    }
+    else{
         //UILabel
         self.descriptionErrorInformationLable.hidden = NO;
         self.descriptionErrorInformationLable.text = @"用户名或密码不能为空";
@@ -117,7 +106,6 @@ static const NSString *baseUrl = @"http://218.23.98.46/timeep/services/UserWS";
         
         [self performSelector:@selector(errorInfoDisappear) withObject:nil afterDelay:3];
     }
-#endif
     
 }
 
