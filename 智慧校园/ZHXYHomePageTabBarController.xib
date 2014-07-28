@@ -21,7 +21,7 @@
                     <items>
                         <tabBarItem title="首页" image="checkbox1_checked.png" id="FvR-fw-P4P"/>
                         <tabBarItem tag="1" title="校园资讯" image="checkbox1_checked.png" id="cpk-7V-6YB"/>
-                        <tabBarItem tag="3" title="e博广场" image="checkbox1_checked.png" id="a63-3p-2Ia"/>
+                        <tabBarItem tag="2" title="e博广场" image="checkbox1_checked.png" id="a63-3p-2Ia"/>
                         <tabBarItem tag="3" title="教务中心" image="checkbox1_checked.png" id="Wfs-IX-BXh"/>
                         <tabBarItem tag="4" title="云图书馆" image="checkbox1_checked.png" id="LMl-YJ-78p"/>
                     </items>
@@ -49,11 +49,6 @@
                     </tableViewCellContentView>
                     <color key="tintColor" red="0.72016950840000005" green="0.80583518740000004" blue="0.4403833432" alpha="1" colorSpace="calibratedRGB"/>
                 </tableViewCell>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DNk-mc-JHA">
-                    <rect key="frame" x="0.0" y="63" width="320" height="437"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

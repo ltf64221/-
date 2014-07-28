@@ -26,8 +26,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"校园新闻";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(removeCurrentView)];
-    self.view.backgroundColor = [UIColor whiteColor];
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(removeCurrentView)];
     
 }
 

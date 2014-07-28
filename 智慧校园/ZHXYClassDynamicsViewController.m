@@ -1,18 +1,18 @@
 //
-//  ZHXYSchoolInfoViewController.m
+//  ZHXYClassDynamicsViewController.m
 //  智慧校园
 //
-//  Created by Akson on 14-7-21.
+//  Created by Akson on 14-7-28.
 //  Copyright (c) 2014年 liutianfu. All rights reserved.
 //
 
-#import "ZHXYSchoolInfoViewController.h"
+#import "ZHXYClassDynamicsViewController.h"
 
-@interface ZHXYSchoolInfoViewController ()
+@interface ZHXYClassDynamicsViewController ()
 
 @end
 
-@implementation ZHXYSchoolInfoViewController
+@implementation ZHXYClassDynamicsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
     // Do any additional setup after loading the view from its nib.
 }
 

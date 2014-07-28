@@ -1,18 +1,18 @@
 //
-//  ZHXYeSquareViewController.m
+//  ZHXYCampusActivitiesViewController.m
 //  智慧校园
 //
-//  Created by Akson on 14-7-21.
+//  Created by Akson on 14-7-28.
 //  Copyright (c) 2014年 liutianfu. All rights reserved.
 //
 
-#import "ZHXYeSquareViewController.h"
+#import "ZHXYCampusActivitiesViewController.h"
 
-@interface ZHXYeSquareViewController ()
+@interface ZHXYCampusActivitiesViewController ()
 
 @end
 
-@implementation ZHXYeSquareViewController
+@implementation ZHXYCampusActivitiesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,14 +22,10 @@
     }
     return self;
 }
-- (void)loadView{
-    UIView *view = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    self.view = view;
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -8,12 +8,15 @@
 
 #import "ZHXYSelectClassViewController.h"
 #import "ZHXYHomePageTabBarController.h"
+#import "ZHXYAppDelegate.h"
 
 @interface ZHXYSelectClassViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *selectClassTableView;
 @property (strong, nonatomic) NSArray *classNameArray;
 @property (strong, nonatomic) NSArray *detailPersonNumber;
 @property (strong, nonatomic) NSArray *imageArray;
+@property (weak, nonatomic) IBOutlet UILabel *SchoolTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teacherTitleLable;
 
 @end
 
@@ -56,11 +59,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.title = @"时代e博初中阮老师";
-    self.navigationItem.hidesBackButton = YES;
     self.selectClassTableView.delegate = self;
     self.selectClassTableView.dataSource = self;
+    self.SchoolTitleLabel.numberOfLines = 0;
+    NSString *teacherName = @"刘天富";
+    self.SchoolTitleLabel.text = [NSString stringWithFormat:@"时代e博初中 \n %@",teacherName];
+    self.teacherTitleLable.text = [NSString stringWithFormat:@"    %@ 欢迎您,请选择班级",teacherName];
 }
 - (void)viewDidLoad
 {
@@ -110,8 +114,9 @@
         self.titleStringBlock = ^(void){
             return homeTabBarController.navigationItem.title;
         };
-        
-        [self.navigationController pushViewController:homeTabBarController animated:NO];
+        ZHXYAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        delegate.window.rootViewController = homeTabBarController;
+        [delegate.window reloadInputViews];
     }
 }
 

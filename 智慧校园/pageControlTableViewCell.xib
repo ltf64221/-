@@ -6,20 +6,49 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="KGk-i7-Jjw" customClass="pageControlTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="KGk-i7-Jjw" customClass="pageControlTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="S08-Kt-BNe">
-                        <rect key="frame" x="82" y="59" width="112" height="37"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="newsTitleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLc-y1-OJs">
+                        <rect key="frame" x="15" y="20" width="280" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="pageIndicatorTintColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="newsContentLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-gg-6uf">
+                        <rect key="frame" x="20" y="60" width="280" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" defersCurrentPageDisplay="YES" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-hX-ZTS">
+                        <rect key="frame" x="100" y="89" width="90" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="pageIndicatorTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="currentPageIndicatorTintColor" red="1" green="0.1065562888" blue="0.2124244921" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="newsTurn:" destination="KGk-i7-Jjw" eventType="valueChanged" id="EGD-vZ-TB1"/>
+                        </connections>
                     </pageControl>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="newTimeLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mo-rw-MtG">
+                        <rect key="frame" x="216" y="83" width="104" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="newsContentLabel" destination="aE5-gg-6uf" id="CBO-hQ-4fP"/>
+                <outlet property="newsPageControl" destination="mMT-hX-ZTS" id="CBg-Ap-h7p"/>
+                <outlet property="newsTimeLabel" destination="4Mo-rw-MtG" id="Ijt-pt-bTd"/>
+                <outlet property="newsTitleLable" destination="OLc-y1-OJs" id="v2L-Wc-WJL"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

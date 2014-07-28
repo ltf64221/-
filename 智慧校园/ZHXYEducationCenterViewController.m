@@ -22,7 +22,10 @@
     }
     return self;
 }
-
+- (void)loadView{
+    UIView *view = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    self.view = view;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

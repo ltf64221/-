@@ -11,8 +11,10 @@
 #import "AFNetworking.h"
 #import "ZHXYSelectClassViewController.h"
 #import "WebSeviceSopaRequest.h"
+#import "ZHXYAppDelegate.h"
 
-static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/UserWS";
+static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/UserWS.asmx";
+//static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/UserWS?wsdl";
 
 @interface ZHXYUserLogViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *userLogLabel;
@@ -73,12 +75,22 @@ static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/U
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+}
+
 #pragma mark - LogButton
 - (IBAction)userLogBtn:(UIButton *)sender {
     [self.userName resignFirstResponder];
     [self.password resignFirstResponder];
-
-    if (![self.userName.text isEqual: @""] && ![self.password.text isEqual: @""]) {
+//![self.userName.text isEqual: @""] && ![self.password.text isEqual: @""]
+    if (1) {
         self.descriptionErrorInformationLable.hidden = YES;
        WebSeviceSopaRequest *sopaRequest = [[WebSeviceSopaRequest alloc]init];
         self.netWorkStatue = [sopaRequest sopaRequestUrl:baseUrlString UserName:@"liutianfu" Password:@"111111" PID:1];
@@ -87,7 +99,9 @@ static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/U
                 [self.backUpUser setObject:self.password.text forKey:self.userName.text];
                 [self.backUpUser synchronize];
             }
-            [self.navigationController pushViewController:[[ZHXYSelectClassViewController alloc]init] animated:NO];
+            ZHXYAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            delegate.window.rootViewController = [[ZHXYSelectClassViewController alloc]init];
+            [delegate.window reloadInputViews];
         }else{
             if (![self isNetWorkReachable]) {
                 self.descriptionErrorInformationLable.hidden = NO;
@@ -136,10 +150,12 @@ static  NSString * const baseUrlString = @"http://218.23.98.46/timeep/services/U
 #pragma mark - checkBoxButton method
 - (IBAction)checkBoxBtn:(UIButton *)sender {
     if (!self.checkBoxBtnState) {
-        [sender setImage:[UIImage imageNamed:@"checkbox1_checked@2x.png"] forState:UIControlStateNormal];
+        //[sender setImage:[UIImage imageNamed:@"checkbox1_checked@2x.png"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"checkbox_true.png"] forState:UIControlStateNormal];
         self.checkBoxBtnState = YES;
     }else{
-        [sender setImage:[UIImage imageNamed:@"checkbox1_unchecked@2x.png"] forState:UIControlStateNormal];
+       // [sender setImage:[UIImage imageNamed:@"checkbox1_unchecked@2x.png"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"checkbox_false.png"] forState:UIControlStateNormal];
         self.checkBoxBtnState = NO;
     }
 }

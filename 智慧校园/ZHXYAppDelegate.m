@@ -25,8 +25,7 @@
 {
     ZHXYUserLogViewController *userLogViewController = [[ZHXYUserLogViewController alloc] init];
     userLogViewController.view.backgroundColor = [UIColor whiteColor];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:userLogViewController];
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = userLogViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
