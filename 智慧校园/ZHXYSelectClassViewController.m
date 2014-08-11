@@ -9,6 +9,7 @@
 #import "ZHXYSelectClassViewController.h"
 #import "ZHXYHomePageTabBarController.h"
 #import "ZHXYAppDelegate.h"
+#import "ZHXYUserLogViewController.h"
 
 @interface ZHXYSelectClassViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *selectClassTableView;
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *SchoolTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teacherTitleLable;
 
+
+
 @end
 
 @implementation ZHXYSelectClassViewController
@@ -25,13 +28,24 @@
 @synthesize classNameArray = _classNameArray;
 @synthesize detailPersonNumber = _detailPersonNumber;
 @synthesize imageArray = _imageArray;
-@synthesize titleStringBlock = _titleStringBlock;
+@synthesize userLogDataMutableArray  = _userLogDataMutableArray;
+
+
+
+- (NSMutableArray *)userLogDataMutableArray{
+    if (!_userLogDataMutableArray) {
+        _userLogDataMutableArray = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _userLogDataMutableArray;
+}
 
 - (NSArray *)imageArray{
     if (!_imageArray) {
-        _imageArray = @[[UIImage imageNamed:@"checkbox1_checked@2x.png"],          [UIImage imageNamed:@"checkbox1_checked@2x.png"],
-            [UIImage imageNamed:@"checkbox1_checked@2x.png"],
-            [UIImage imageNamed:@"checkbox1_checked@2x.png"]];
+        _imageArray = @[[UIImage imageNamed:@"classicon.jpg"],
+                        [UIImage imageNamed:@"classicon.jpg"],
+                        [UIImage imageNamed:@"classicon.jpg"],
+                        [UIImage imageNamed:@"classicon.jpg"]
+                        ];
     }
     return _imageArray;
 }
@@ -61,16 +75,16 @@
     [super viewWillAppear:animated];
     self.selectClassTableView.delegate = self;
     self.selectClassTableView.dataSource = self;
+    self.selectClassTableView.showsHorizontalScrollIndicator = NO;
     self.SchoolTitleLabel.numberOfLines = 0;
-    NSString *teacherName = @"刘天富";
-    self.SchoolTitleLabel.text = [NSString stringWithFormat:@"时代e博初中 \n %@",teacherName];
-    self.teacherTitleLable.text = [NSString stringWithFormat:@"    %@ 欢迎您,请选择班级",teacherName];
+    self.SchoolTitleLabel.text = [NSString stringWithFormat:@"时代e博初中 \n %@",self.userLogDataMutableArray[0][@"trueName"]];
+    self.teacherTitleLable.text = [NSString stringWithFormat:@"    %@ 欢迎您,请选择班级",self.userLogDataMutableArray[0][@"trueName"]];
 }
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSLog(@"user:%@",self.userLogDataMutableArray);
 }
 #pragma mark - datasource
 
@@ -97,6 +111,7 @@
     cell.detailTextLabel.text = self.detailPersonNumber[indexPath.row];
     cell.imageView.image = self.imageArray[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     return cell;
 }
 
@@ -110,10 +125,7 @@
     if (indexPath.row < 4) {
         ZHXYHomePageTabBarController *homeTabBarController = [[ZHXYHomePageTabBarController alloc]init];
         homeTabBarController.navigationItem.title = [NSString stringWithFormat:@"时代e博初中 %@",self.classNameArray[indexPath.row]];
-        
-        self.titleStringBlock = ^(void){
-            return homeTabBarController.navigationItem.title;
-        };
+    
         ZHXYAppDelegate *delegate = [UIApplication sharedApplication].delegate;
         delegate.window.rootViewController = homeTabBarController;
         [delegate.window reloadInputViews];

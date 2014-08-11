@@ -10,6 +10,19 @@
 
 @interface ZHXYSchoolNewsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *schoolNewsTableView;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *schoolInfoSegmentedControl;
+
+@property (strong, nonatomic) IBOutlet UIView *ClassBulletinView;
+@property (strong, nonatomic) IBOutlet UITableView *classBulletinTableView;
+
+@property (strong, nonatomic) IBOutlet UIView *classPrepareView;
+
+@property (strong, nonatomic) IBOutlet UIView *todayHomeWorkView;
+@property (strong, nonatomic) UISegmentedControl *classDynamicsSegmentedControl;
+
+@property (strong, nonatomic) IBOutlet UIView *NewsTableView;
+
+@property (strong, nonatomic) IBOutlet UIView *CampusActivitiesView;
+@property (strong, nonatomic) IBOutlet UITableView *campusActTableView;
+
 
 @end

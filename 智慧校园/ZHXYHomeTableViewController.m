@@ -7,8 +7,7 @@
 //
 
 #import "ZHXYHomeTableViewController.h"
-#import "ZHXYShowDetailContentViewController.h"
-#import "HDScrollview.h"
+//#import "ZHXYShowDetailContentViewController.h"
 #import "insertTableViewCell.h"
 #import "pageControlTableViewCell.h"
 #import "HomeWorkCell.h"
@@ -18,21 +17,57 @@
 
 
 
-@interface ZHXYHomeTableViewController ()<UIScrollViewDelegate,HDScrollviewDelegate>
+@interface ZHXYHomeTableViewController ()<UIScrollViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *tableViewCellArray;
-@property (strong, nonatomic) HDScrollview *HDSchoolInfoScrollView;
+
 @property (strong, nonatomic) DataSourceAndDelegate *dataAndDelegate;
 @property (strong, nonatomic) NSArray *imageArray;
-@property (strong, nonatomic) NSTimer *newsPageTimer;
+@property (strong, nonatomic) UIScrollView *newsScorllView;
+@property (strong, nonatomic) UIPageControl *newsPageControl;
 @end
 
 @implementation ZHXYHomeTableViewController
-@synthesize tableViewCellArray = _tableViewCellArray;
-@synthesize HDSchoolInfoScrollView = _HDSchoolInfoScrollView;
 @synthesize dataAndDelegate = _dataAndDelegate;
 @synthesize imageArray = _imageArray;
-@synthesize newsPageTimer = _newsPageTimer;
+@synthesize newsScorllView = _newsScorllView;
+@synthesize newsPageControl = _newsPageControl;
+
+- (UIPageControl *)newsPageControl{
+    if (!_newsPageControl) {
+        _newsPageControl = [[UIPageControl alloc] init];
+        _newsPageControl.center = CGPointMake(self.view.frame.size.width*0.5, ROW_HIGHT_0 - 10);
+        _newsPageControl.bounds = CGRectMake(0, 0, 150, 50);
+        _newsPageControl.numberOfPages = TABLEVIEWCELL_NUMBER;
+        _newsPageControl.pageIndicatorTintColor = [UIColor redColor];
+        _newsPageControl.currentPageIndicatorTintColor = [UIColor greenColor];
+        _newsPageControl.enabled = YES;
+    }
+    return _newsPageControl;
+}
+
+- (UIScrollView *)newsScorllView{
+    if (!_newsScorllView) {
+        _newsScorllView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, ROW_HIGHT_0)];
+        for (int i = 0; i < TABLEVIEWCELL_NUMBER; i++) {
+            pageControlTableViewCell *cell = (pageControlTableViewCell *)[[UITableView alloc ] init];
+            
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"pageControlTableViewCell" owner:self options:nil];
+            cell = array[0];
+            cell.newsTimeLabel.text = [NSString stringWithFormat:@"Time:%d",i];
+            cell.newsTitleLable.text = [NSString stringWithFormat:@"Title:%d",i];
+            cell.newsContentLabel.text = [NSString stringWithFormat:@"Content:%d",i];
+            cell.frame = CGRectMake(i *self.view.frame.size.width, 0, self.view.frame.size.width, ROW_HIGHT_0);
+            [_newsScorllView addSubview:cell];
+            
+            _newsScorllView.contentSize = CGSizeMake(TABLEVIEWCELL_NUMBER * self.view.frame.size.width, 0);
+            _newsScorllView.showsHorizontalScrollIndicator = NO;
+            _newsScorllView.pagingEnabled = YES;
+            _newsScorllView.delegate = self;
+        }
+    }
+    return _newsScorllView;
+}
+
 
 - (NSArray *)imageArray{
     if (!_imageArray) {
@@ -49,21 +84,6 @@
 }
 
 
-- (NSMutableArray *)tableViewCellArray{
-    if (!_tableViewCellArray) {
-        _tableViewCellArray = [NSMutableArray arrayWithCapacity:TABLEVIEWCELL_NUMBER];
-        for (int i = 0; i < TABLEVIEWCELL_NUMBER; i++) {
-           
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"pageControlTableViewCell" owner:self options:nil];
-            
-            [_tableViewCellArray insertObject:array[0] atIndex:i];
-        }
-        
-    }
-    
-    return _tableViewCellArray;
-}
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -79,9 +99,13 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"111";
+    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"lightbluebtn.png"] forBarMetrics:UIBarMetricsDefault];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"邮箱" style:UIBarButtonItemStylePlain target:self action:@selector(eMail)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setAttribute)];
+    
+  //  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UI] style:<#(UIBarButtonItemStyle)#> target:<#(id)#> action:<#(SEL)#>];
     
     
 }
@@ -118,19 +142,9 @@
     }
     if (indexPath.section == 0) {
         
-        self.HDSchoolInfoScrollView = [[HDScrollview alloc] initWithFrame:CGRectMake(0, 0, 320, 100)withImageView:self.tableViewCellArray];
-        
-        self.HDSchoolInfoScrollView.delegate = self;
-        self.HDSchoolInfoScrollView.HDdelegate = self;
-        [cell.contentView addSubview:self.HDSchoolInfoScrollView];
-        
-        
-        self.HDSchoolInfoScrollView.pagecontrol.frame = CGRectMake(0, self.HDSchoolInfoScrollView.pagecontrol.frame.origin.y+self.HDSchoolInfoScrollView.frame.size.height-10, 320, 10);
-        self.HDSchoolInfoScrollView.pagecontrol.currentcolor = [UIColor redColor];
-        self.HDSchoolInfoScrollView.pagecontrol.othercolor = [UIColor greenColor];
-        self.HDSchoolInfoScrollView.pagecontrol.currentPage = 0;
-        [cell.contentView addSubview:self.HDSchoolInfoScrollView.pagecontrol];
-        
+        [cell.contentView addSubview:self.newsScorllView];
+        [cell.contentView addSubview:self.newsPageControl];
+        return cell;
         
     }
     if (indexPath.section == 1) {
@@ -190,25 +204,17 @@
         case 2:
             return ROW_HIGHT_2;
         case 3:
-            return 480 - (ROW_HIGHT_0 + ROW_HIGHT_1 + ROW_HIGHT_2);
+            return self.view.frame.size.height - (ROW_HIGHT_0 + ROW_HIGHT_1 + ROW_HIGHT_2);
     }
     return 200;
     
     
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.HDSchoolInfoScrollView HDscrollViewDidScroll];
-}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    
+    self.newsPageControl.currentPage = self.newsScorllView.contentOffset.x /self.newsScorllView.frame.size.width;
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView
-{
-    [self.HDSchoolInfoScrollView HDscrollViewDidEndDecelerating];
-}
-
--(void)showDetailContentView:(int)index
-{
-    [self.navigationController pushViewController:[[ZHXYShowDetailContentViewController alloc]init] animated:NO];
 }
 
 -(void)BTNCLICK:(UIButton *)sender

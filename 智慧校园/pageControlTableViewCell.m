@@ -14,9 +14,6 @@
 {
     // Initialization code
     //得到的新闻 用block  实现,在这边定义一个数组,在下载数据地方 用block 填充数组数据
-    self.newsTitleLable.text = @"hello";
-    self.newsContentLabel.text = @"world";
-    self.newsTimeLabel.text = @"time";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -56,8 +53,5 @@
 //    
 //}
 
-- (IBAction)newsTurn:(UIPageControl *)sender {
-
-}
 
 @end

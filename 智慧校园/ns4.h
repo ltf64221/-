@@ -1,0 +1,16 @@
+#import <Foundation/Foundation.h>
+#import "USAdditions.h"
+#import <libxml/tree.h>
+#import "USGlobals.h"
+@class ns4_ArrayOfActivity;
+@class ns4_ArrayOfActmessage;
+@class ns4_ArrayOfActregist;
+@class ns4_ArrayOfWrimessage;
+@class ns4_ArrayOfWriting;
+@class ns4_ArrayOfActbook;
+@class ns4_Activity;
+@class ns4_Actbook;
+@class ns4_Wrimessage;
+@class ns4_Writing;
+@class ns4_Actregist;
+@class ns4_Actmessage;

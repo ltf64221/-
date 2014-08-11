@@ -1,0 +1,11 @@
+#import <Foundation/Foundation.h>
+#import "USAdditions.h"
+#import <libxml/tree.h>
+#import "USGlobals.h"
+@class ns3_TimeebUser;
+@class ns3_ArrayOfTimeebUser;
+@class ns3_ArrayOfSaleCardOrder;
+@class ns3_ArrayOfUserEbook;
+@class ns3_UserEbook;
+@class ns3_UserInfo;
+@class ns3_SaleCardOrder;

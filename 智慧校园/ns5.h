@@ -1,0 +1,12 @@
+#import <Foundation/Foundation.h>
+#import "USAdditions.h"
+#import <libxml/tree.h>
+#import "USGlobals.h"
+@class ns5_ArrayOfComment;
+@class ns5_Book;
+@class ns5_Comment;
+@class ns5_ArrayOfShelf;
+@class ns5_Shelf;
+@class ns5_ArrayOfBagStore;
+@class ns5_ArrayOfBook;
+@class ns5_BagStore;

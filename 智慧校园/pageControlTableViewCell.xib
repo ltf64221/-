@@ -26,15 +26,6 @@
                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" defersCurrentPageDisplay="YES" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-hX-ZTS">
-                        <rect key="frame" x="100" y="89" width="90" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="pageIndicatorTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="currentPageIndicatorTintColor" red="1" green="0.1065562888" blue="0.2124244921" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <action selector="newsTurn:" destination="KGk-i7-Jjw" eventType="valueChanged" id="EGD-vZ-TB1"/>
-                        </connections>
-                    </pageControl>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="newTimeLable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mo-rw-MtG">
                         <rect key="frame" x="216" y="83" width="104" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,11 +35,25 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="newsContentLabel" destination="aE5-gg-6uf" id="CBO-hQ-4fP"/>
-                <outlet property="newsPageControl" destination="mMT-hX-ZTS" id="CBg-Ap-h7p"/>
-                <outlet property="newsTimeLabel" destination="4Mo-rw-MtG" id="Ijt-pt-bTd"/>
-                <outlet property="newsTitleLable" destination="OLc-y1-OJs" id="v2L-Wc-WJL"/>
+                <outlet property="newsContentLabel" destination="aE5-gg-6uf" id="dsv-GN-zgn"/>
+                <outlet property="newsTimeLabel" destination="4Mo-rw-MtG" id="xGc-4A-cDb"/>
+                <outlet property="newsTitleLable" destination="OLc-y1-OJs" id="xPC-B1-oF8"/>
             </connections>
         </tableViewCell>
+        <view contentMode="scaleToFill" id="8tz-Gt-d9t">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY7-MF-kBA">
+                    <rect key="frame" x="116" y="79" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
     </objects>
 </document>

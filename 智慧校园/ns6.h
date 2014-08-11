@@ -1,0 +1,11 @@
+#import <Foundation/Foundation.h>
+#import "USAdditions.h"
+#import <libxml/tree.h>
+#import "USGlobals.h"
+@class ns6_ArrayOfChargeRecord;
+@class ns6_ArrayOfIntegrationRecord;
+@class ns6_ArrayOfTPhoneMessageSend;
+@class ns6_SaleCard;
+@class ns6_ChargeRecord;
+@class ns6_TPhoneMessageSend;
+@class ns6_IntegrationRecord;

@@ -10,4 +10,20 @@
 
 @interface ZHXYeSquareViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *eSquareView;
+@property (strong, nonatomic) IBOutlet UITableView *eSquareTableView;
+
+@property (strong, nonatomic) IBOutlet UIView *myeTwitterView;
+
+@property (strong, nonatomic) IBOutlet UIView *myCircleView;
+@property (strong, nonatomic) IBOutlet UITableView *myCircleTableView;
+
+
+@property (strong, nonatomic) IBOutlet UIView *e_MessageView;
+@property (strong, nonatomic) IBOutlet UITableView *e_MessageTableView;
+
+@property (strong, nonatomic) IBOutlet UISearchBar *eMessageSearchBar;
+
+@property (strong, nonatomic) IBOutlet UITableView *eMessageTableView;
+
 @end

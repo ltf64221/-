@@ -11,7 +11,6 @@
 @interface pageControlTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) NSArray *newsArray;
-@property (strong, nonatomic) IBOutlet UIPageControl *newsPageControl;
 
 @property (strong, nonatomic) IBOutlet UILabel *newsTitleLable;
 

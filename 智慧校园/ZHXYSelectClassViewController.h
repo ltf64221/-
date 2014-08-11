@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef NSString* (^titleBlock)(void);
 @interface ZHXYSelectClassViewController : UIViewController
-@property (strong, nonatomic) titleBlock titleStringBlock;
+@property (strong, nonatomic) NSMutableArray *userLogDataMutableArray;
+
 
 @end

@@ -7,12 +7,28 @@
 //
 
 #import "ZHXYEducationCenterViewController.h"
+#import "CCSegmentedControl.h"
 
 @interface ZHXYEducationCenterViewController ()
+@property (nonatomic, strong) CCSegmentedControl *EducationCenterSegmentedControl;
 
 @end
 
 @implementation ZHXYEducationCenterViewController
+@synthesize EducationCenterSegmentedControl = _EducationCenterSegmentedControl;
+
+-(CCSegmentedControl *)EducationCenterSegmentedControl{
+    if (!_EducationCenterSegmentedControl) {
+        
+        _EducationCenterSegmentedControl = [[CCSegmentedControl alloc] initWithItems:@[@"花名册",@"课程表",@"学生成绩",@"学生评语",@"通讯录"]];
+        _EducationCenterSegmentedControl.frame = CGRectMake(0, StateAndNavigatonHight,ScreenWidth, EducationCenterSegmentedControlHight);
+        _EducationCenterSegmentedControl.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"segment_bg.png"]];
+        _EducationCenterSegmentedControl.backgroundImage = [UIImage imageNamed:@"segment_bg.png"];
+        _EducationCenterSegmentedControl.selectedStainView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stain.png"]];
+        _EducationCenterSegmentedControl.selectedSegmentTextColor = [UIColor redColor];
+    }
+    return _EducationCenterSegmentedControl;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,13 +38,10 @@
     }
     return self;
 }
-- (void)loadView{
-    UIView *view = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    self.view = view;
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view addSubview:self.EducationCenterSegmentedControl];
     // Do any additional setup after loading the view from its nib.
 }
 

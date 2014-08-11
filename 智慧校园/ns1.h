@@ -1,0 +1,9 @@
+#import <Foundation/Foundation.h>
+#import "USAdditions.h"
+#import <libxml/tree.h>
+#import "USGlobals.h"
+@class ns1_TalkAbout;
+@class ns1_ArrayOfTalkReply;
+@class ns1_TalkReply;
+@class ns1_ArrayOfTalkReplyReply;
+@class ns1_TalkReplyReply;

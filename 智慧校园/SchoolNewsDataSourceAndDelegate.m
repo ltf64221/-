@@ -8,6 +8,7 @@
 
 #import "SchoolNewsDataSourceAndDelegate.h"
 #import "SchoolNewsTableViewCell.h"
+#import "QuartzCore/QuartzCore.h"
 
 @implementation SchoolNewsDataSourceAndDelegate
 #if 1
@@ -18,15 +19,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *indentifier = @"insiderIdentifier";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
-//    }
-//  //  cell.imageView.image = [UIImage imageNamed:@"Expression_4@2x.png"];
-//    cell.textLabel.text = [NSString stringWithFormat:@"indexPath_row:%d", indexPath.row];
-//    return cell;
+
     static NSString *cellIdentifier = @"schoolNewsCell";
     
     SchoolNewsTableViewCell *cell = (SchoolNewsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -37,10 +30,12 @@
         NSMutableAttributedString *timeString = [[NSMutableAttributedString alloc] initWithString:@"    2014年 \n 02-08"];
         [timeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:10.0] range:NSMakeRange(0, 12)];
         cell.newsTimeLabel.attributedText = timeString;
+        cell.newsTimeLabel.layer.borderColor = [UIColor redColor].CGColor;
+        cell.newsTimeLabel.layer.borderWidth = 2.0;
         
         
        NSString *newsTitleString = @"在项目开发中，我们经常会遇到体现字";
-       NSString *newsContentString = @"    使用不同的颜色或不同的字体来体现字符串， 在iOS 6 以后我们...";        
+       NSString *newsContentString = @"    使用不同的颜色或不同的字体来体现字符串， 在iOS 6 以后我们...";
         
        cell.newsContentLabel.text = newsContentString;
        cell.newsTitleLable.text = newsTitleString;

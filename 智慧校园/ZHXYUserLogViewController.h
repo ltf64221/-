@@ -10,4 +10,6 @@
 
 @interface ZHXYUserLogViewController : UIViewController
 
+@property (strong, nonatomic) void(^userLogInfoBlock)(NSMutableArray *_data);
+
 @end
